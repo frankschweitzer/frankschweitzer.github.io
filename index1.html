@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel File Upload</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+        .file-input {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .file-input:hover {
+            background-color: #45a049;
+        }
+        
+        .upload-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .upload-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Excel File Upload</h1>
+    
+    <form action="/process" method="POST" enctype="multipart/form-data">
+        <label for="file" class="file-input">Choose File</label>
+        <input type="file" id="file" name="file" style="display: none;">
+        <input type="submit" value="Upload" class="upload-button">
+    </form>
+    
+    {% if result %}
+    <h2>Processing Result</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
